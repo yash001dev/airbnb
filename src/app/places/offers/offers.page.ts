@@ -14,5 +14,7 @@ export class OffersPage implements OnInit {
   ngOnInit() {
     this.offerPlaces=this.offerService.places;
   }
-
+  onEdit(offerId:string){
+    console.log('Editing Item',offerId);
+  }
 }

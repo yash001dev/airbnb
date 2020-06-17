@@ -8,7 +8,7 @@
       <ion-button routerLink="/places/tabs/offers/new">
         <ion-icon name="add" slot="icon-only"></ion-icon>
       </ion-button>
-    </ion-buttons >
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,17 +16,27 @@
   <ion-grid>
     <ion-row>
       <ion-col sizes="12" size-sm="8" offset-sm="2" text-center>
-        <ion-list>
-          <ion-item *ngFor="let place of offerPlaces" [routerLink]="['/','places','tabs','offers',place.id]"
-          detail>
-            <ion-thumbnail slot="start">
-              <ion-img [src]="place.image"></ion-img>
-            </ion-thumbnail>
-            <ion-label>
-              <h2>{{place.title}}</h2>
-              <p>{{place.description}}</p>
-            </ion-label>
-          </ion-item>
+        <ion-list *ngFor="let place of offerPlaces">
+          <ion-item-sliding>
+            <ion-item
+              [routerLink]="['/','places','tabs','offers',place.id]"
+              detail
+            >
+              <ion-thumbnail slot="start">
+                <ion-img [src]="place.image"></ion-img>
+              </ion-thumbnail>
+              <ion-label>
+                <h2>{{place.title}}</h2>
+                <p>{{place.description}}</p>
+              </ion-label>
+            </ion-item>
+            <ion-item-options>
+              <ion-item-option color="secondary" [routerLink]="['/','places','tabs','offers','edit',place.id]">
+          
+                <ion-icon name="create" slot="icon-only"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
         </ion-list>
       </ion-col>
     </ion-row>
